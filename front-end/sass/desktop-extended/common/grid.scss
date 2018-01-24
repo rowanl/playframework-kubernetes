@@ -1,0 +1,16 @@
+html, 
+body {
+	min-height: 800px;
+    height: 100%;
+}
+
+main {
+	z-index:10000;
+	min-height: 450px;
+}
+
+body {
+	padding-top: 86px;
+	padding-bottom: 0;
+	background-image: none;
+}

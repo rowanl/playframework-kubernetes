@@ -1,0 +1,15 @@
+.has-js {
+	#dialog {
+		.body {
+			max-height: 600px;
+			overflow: scroll;
+		}
+	}
+}
+
+.dialog-box {
+	h2 {
+		@include rem-fallback(font-size, 3.6);
+		text-align: center;
+	}
+}

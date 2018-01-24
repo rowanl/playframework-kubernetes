@@ -1,0 +1,47 @@
+
+//Create local docker machine
+docker-machine create development --driver virtualbox --virtualbox-disk-size "5000" --virtualbox-cpu-count 2 --virtualbox-memory "4096"
+
+//will proxy pass 8000 from your local machine to 9000 on the image and run in dev mode
+docker run -i -p 8000:9000 xmas/sf-xmas sbt run
+
+//mount docker image as bash user in unix - useful for checking paths when debugging this dockerfile
+docker run -ti -v $(pwd):/mnt xmas/sf-xmas:9 bash
+
+//run locally will be on localhost:8000 remember to make sure play accepts the incoming traffic in application.conf!
+docker run -i -p 8000:9000 xmas/sf-xmas:1
+
+//app tag for when uploading to container registry
+us.gcr.io/sf-xmas/app:1
+
+//tag a build
+docker tag IMAGE_ID us.gcr.io/sf-xmas/app:1
+
+//upload 
+gcloud docker -- push us.gcr.io/sf-xmas/app:1
+
+### In google cloud, you'll need to use the gcloud tools or cloud shell from within the Google Cloud Platform Admin
+
+gcloud config set project sf-xmas
+gcloud config set compute/zone us-central1-b
+
+//create cluster
+gcloud container clusters create xmas-cluster2 --num-nodes=1
+
+//get creds
+gcloud container clusters get-credentials xmas-cluster
+
+//deploy code & run - use port 9000 as PLAY default
+gcloud kubectl run sf-xmasapp --image=us.gcr.io/sf-xmas/app:24 --port 9000
+
+//create a static ip address in your AZ
+gcloud compute addresses create sf-xmasapp-ip --region us-central1
+
+//Get the IP
+gcloud compute addresses describe sf-xmasapp-ip --region us-central1
+
+//create load balancer forwarding traffic from 80 to 9000 - make sure this has the same name as your app above
+kubectl expose deployment sf-xmasapp --type=LoadBalancer --port 80 --target-port 9000 --load-balancer-ip YOUR_IP_ADDRESS
+
+//load a new version of the application by pushing a new tagged build and sending this command, update the version number on the end accordingly
+kubectl set image deployment/sf-xmasapp sf-xmasapp=us.gcr.io/sf-xmas/app:1

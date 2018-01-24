@@ -1,0 +1,30 @@
+header {
+
+	$moonwidth: 137;
+	$moonwidthpx: $moonwidth *1px;
+
+	$moonOffset: 75;
+
+	$gradientwidth: 500;
+	$top: (($gradientwidth / 2) - $moonwidth) - $moonOffset *1px;
+	$right: (($gradientwidth / 2) - $moonwidth) - $moonOffset *1px;
+
+	$gradientcenter: (($gradientwidth - $moonwidth)/2) - ($gradientwidth /2) - $moonOffset * 1px;
+	
+	&:before {
+		background: radial-gradient(ellipse closest-side, #96cADD, rgba(84, 167, 199, .5)  20%, transparent);
+		right: $gradientcenter;
+		top: $gradientcenter;
+	}
+
+	&:after {
+		content: "";
+		background: url("../i/desktop/moon.png") no-repeat top left;
+		position: absolute;
+		width: $moonwidthpx;
+		height: $moonwidthpx;
+		right: $right;
+		top: $top;
+		z-index: 10;
+	}
+}

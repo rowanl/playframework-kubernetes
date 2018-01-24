@@ -1,0 +1,13 @@
+header {
+
+	&:before {
+		content: "";
+		background: radial-gradient(ellipse closest-side, #96cADD, #54A7C7  20%, transparent);
+		width: 500px;
+		height: 500px;
+		position: absolute;
+		top: -250px;
+		right: -220px;
+		border-radius: 150px;
+	}
+}

@@ -1,0 +1,30 @@
+.buttons {
+	margin: 30px auto;
+	padding: 0 30px;
+
+	li {
+		text-align: center;
+		background: white;
+		border-radius: 90px;
+		width: 100%;
+		opacity: 0.9;
+	}
+
+	li:hover {
+		opacity: 1;
+	}
+
+	li + li {
+		margin-top: 20px;
+	}
+
+	a,
+	a:hover {
+		@include rem-fallback("font-size", 1.2);
+		padding: 15px 10px;
+		font-weight: bold;
+		display: block;
+		color: $dark-blue;
+		opacity: 1;
+	}
+}

@@ -1,0 +1,36 @@
+body.votepage {
+	padding-top: 88px;
+}
+
+.votepage {
+	main {
+		max-width: 550px;
+	}
+
+	h1 {
+		@include rem-fallback("font-size", 5.8);
+		position: relative;
+		text-align: center;
+		margin: 0 auto 35px;
+		max-width: 300px;
+	}
+
+	p {
+		margin: 20px 0;
+	}
+
+	.wish {
+		@include rem-fallback("font-size", 3.4);
+		margin: 50px 0;
+	}
+
+	main a {
+		background:url("../i/desktop/beyond_logo_white_end.png") no-repeat top left;
+		width: 145px;
+		height: 40px;
+	}
+	
+	footer a {
+		display: none;
+	}
+}

@@ -1,0 +1,19 @@
+@import helper._
+@(c:Charity, index:Integer)
+
+<div class="charity js-show-@c.shortName @if(index == 0){ selected}">
+    <h2>@c.name</h2>
+    <img src="@routes.Assets.versioned("i/desktop/" + c.image)" alt="@c.imageAlt" />
+    <p>
+        @c.description
+    </p>
+
+    <p class="ctr">
+        <a href="@c.url" target="_blank" class="external">Visit their site</a>
+    </p>
+    <form action="@routes.CharityController.donate()" method="post">
+        <input type="hidden" name="id" value="@c.id"/>
+        <input type="submit" value="This one!" />
+        @CSRF.formField
+    </form>
+</div>

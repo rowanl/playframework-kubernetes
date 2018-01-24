@@ -1,0 +1,17 @@
+@(charity: Charity)
+
+@main("Thanks for Donating!", "votepage") {
+    <main>
+
+        <h1>Thanks! <img src="@routes.Assets.versioned("i/desktop/star.gif")" class="star" alt="A shining star, sparkling away in the moonlit sky"/></h1>
+
+        <p>You chose <strong>@charity.name. </strong></p>
+        <p>Things are looking a little brighter already.</p>
+
+        <p class="wish">Wishing you a happy holiday season and a brilliant new year.</p>
+
+        <p>From all of us at</p>
+
+        <p><a href="https://bynd.com" target="_blank">Beyond</a></p>
+    </main>
+}

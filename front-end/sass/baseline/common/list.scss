@@ -1,0 +1,7 @@
+.list {
+	list-style-type: disc;
+	padding-left: 18px;
+	li + li {
+		@include rem-fallback(margin-top, 1.2);
+	}
+}

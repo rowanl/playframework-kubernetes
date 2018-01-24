@@ -1,0 +1,26 @@
+footer {
+	a {
+		background:url("../i/mobile/beyond_logo_white-mobile-end.png") no-repeat top left;
+		text-indent: -1000px;
+		overflow: hidden;
+		width: 106px;
+		height: 29px;
+		display: block;
+		position: absolute;
+		right: 40px;
+		bottom: 20px;
+	}
+	img {
+		display: none;
+	}
+}  
+
+.lights-on-loader{
+	background:url("../i/desktop/BridgeOn.png") no-repeat top left;
+	clip: rect(1px,1px,1px,1px);
+	width:1px;
+	height:1px;
+	position: absolute;
+	left:-100px;
+	bottom:0;
+}

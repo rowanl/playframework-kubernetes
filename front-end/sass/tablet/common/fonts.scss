@@ -1,0 +1,3 @@
+p {
+	@include rem-fallback("font-size", 1.5);
+}

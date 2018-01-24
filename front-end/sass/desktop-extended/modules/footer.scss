@@ -1,0 +1,36 @@
+footer {
+	min-height: auto;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	z-index:9000; 
+	
+	img {
+		display: block;
+		width: 100%;
+	}
+}
+
+body.votepage {
+	background-image: none;
+}
+
+.votepage {
+	.lights-on {
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		will-change: opacity;
+    	opacity: 0;
+		transition: 3s opacity ease;
+	}
+}
+
+.votepage.on { 
+	.lights-on {	
+		opacity: 1;
+	}	
+}

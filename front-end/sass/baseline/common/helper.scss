@@ -1,0 +1,21 @@
+.wai {
+	display: block;
+	height: 0;
+	width: 0;
+	font-size: 0;
+	overflow: hidden;
+	float: left;
+}
+
+.hdn {
+	display: none !important;
+}
+
+.scrolling,
+.scrolling * {
+/*	pointer-events: none;	*/
+}
+
+.ctr {
+	text-align: center;
+}

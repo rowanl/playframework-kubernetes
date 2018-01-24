@@ -1,0 +1,17 @@
+.star {
+	z-index: -1;
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	left: 30px;
+	bottom: 0;
+}
+
+.bg-star {
+	z-index: -1;
+	position: absolute;
+	width: 7px;
+	height: 7px;
+	border-radius:7px;
+	background: radial-gradient(ellipse closest-side, #96cADD, #54A7C7  20%, transparent);
+}

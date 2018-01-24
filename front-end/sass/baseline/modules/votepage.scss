@@ -1,0 +1,37 @@
+body.votepage {
+	background-image:url("../i/desktop/BridgeOn.png");
+}
+
+.votepage {
+
+	p {
+		margin: 1em;
+	}
+
+	h1 {
+		color: $pink;
+		position: relative;
+		@include rem-fallback("font-size", 4);
+	}
+
+	.wish {
+		font-family: "Pacifico";
+		color: white;
+		line-height: 1.6em;
+		@include rem-fallback("font-size", 2);
+	}
+
+	main a {
+		display: block;
+		background:url("../i/mobile/beyond_logo_white-mobile-end.png") no-repeat top left;
+		text-indent: -1000px;
+		overflow: hidden;
+		width: 106px;
+		height: 29px;
+		margin: 0 auto;
+	}
+
+	footer a {
+		display: none;
+	}
+}

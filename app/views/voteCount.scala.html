@@ -1,0 +1,13 @@
+@import helper._
+@(charities:List[Charity])
+
+@main("Thanks for Donating!", "votepage") {
+
+    <ul>
+        @for(c <- charities) {
+            <li>
+                <h1>@c.name, @c.voteCount</h1>
+            </li>
+        }
+    </ul>
+}

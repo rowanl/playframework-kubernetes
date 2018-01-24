@@ -1,0 +1,27 @@
+* { 
+	box-sizing: border-box;
+}
+
+html,
+body { 
+	overflow-x: hidden;
+}
+
+body {
+	position: relative;
+	padding: 0;
+	margin:0;
+	padding: 40px 25px 337px;
+	background: #004680 url("../i/desktop/BridgeOff.png") no-repeat 75% bottom;
+}
+
+main {
+	position: relative;
+	will-change: opacity;
+	opacity: 0;
+	transition: 0.7s opacity ease;
+}
+
+main.show {
+	opacity:1;
+}

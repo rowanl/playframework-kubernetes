@@ -1,0 +1,90 @@
+.modal {
+	background: white;
+	border-radius: 5px;
+	position: absolute;
+	top: 5px;
+	left: 10px;
+	right: 10px;
+	bottom: 5px;
+	max-width: 800px;
+	margin: 3% auto;
+	padding: 38px 0 10px;
+	will-change: opacity;
+	transition: 0.7s opacity ease;
+	opacity: 1;
+
+	&.opacity-0 {
+		opacity: 0;
+	}
+
+	button {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		width: 44px;
+		height: 44px;
+		text-indent: -1000px;
+		overflow: hidden;
+		border: none;
+		cursor: pointer;
+		background: url("../i/desktop/close-red.png") no-repeat top right;
+	}
+
+	.content {
+		overflow-y: scroll;
+		height: 100%;
+		width: 100%;
+	}
+
+	.charity {
+		padding: 0 12px;
+		display: none;
+	}
+
+	.selected {
+		display: block;
+	}
+
+	img {
+		width: 100%;
+		margin-bottom: 26px;
+	}
+
+	h2 {
+		color: $dark-blue;
+		font-family: "Open Sans", arial, verdana;
+		font-weight: bold;
+		@include rem-fallback("font-size", 2);
+	}
+
+	p {
+		@include rem-fallback("font-size", 1.2);
+		color: $dark-blue-body;
+		max-width: 80%;
+		margin: 0 auto;
+	}
+
+	.ctr {
+		margin: 34px auto;
+	}
+
+	a {
+		@include rem-fallback("font-size", 1.4);
+		display: inline-block;
+	}
+
+	input[type="submit"]{
+		display: block;
+		width: 90%;
+		margin: 20px auto 0;
+		background: $pink;
+		padding: 15px 50px;
+		border-radius: 60px;
+		border: 1px solid transparent;
+		color: white;
+		text-transform: uppercase;
+		font-weight: bold;
+		cursor: pointer;
+		@include rem-fallback("font-size", 1.4);
+	}
+} 

@@ -1,0 +1,33 @@
+@media screen and (orientation : landscape){
+	.modal {
+		bottom: 0;
+	}
+}
+
+.modal {
+	position: relative;
+	top: auto;
+	left: auto;
+	right: auto;
+	bottom: auto;
+
+	p {
+		@include rem-fallback("font-size", 1.3em);
+	}
+
+	.content {
+		overflow: auto;
+	}
+
+	.charity {
+		padding: 0 25px 24px;
+	}
+	
+	img {
+		margin-bottom: 34px;
+	}
+
+	input[type="submit"]{
+		width: auto;
+	}
+}

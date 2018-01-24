@@ -1,0 +1,97 @@
+/* mixins */
+
+@function strip-unit($num) {
+    @return $num / ($num * 0 + 1);
+}
+
+@mixin rem-fallback($property, $values...) {
+    $max: length($values);
+    $pxValues: '';
+    $remValues: '';
+    @for $i from 1 through $max {
+        $value: strip-unit(nth($values, $i));
+        $pxValues: #{$pxValues + $value*10}px;
+        @if $i < $max {
+            $pxValues: #{$pxValues + " "};
+        }
+    }
+    @for $i from 1 through $max {
+        $value: strip-unit(nth($values, $i));
+        $remValues: #{$remValues + $value}rem;
+        @if $i < $max {
+            $remValues: #{$remValues + " "};
+        }
+    }
+    #{$property}: $pxValues;
+    #{$property}: $remValues;
+}
+
+// Mixin itself
+@mixin clearfix() {
+    &:before,
+    &:after {
+        content: " ";
+        display: block;
+        clear: both;
+        width: 0;
+        height: 0;
+        visibility: hidden;
+    }
+}
+
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    -o-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin transition($transition) {
+    -webkit-transition: -webkit-transform $transition;
+	transition: -webkit-transform $transition;
+	transition: transform $transition;
+	transition: transform $transition,
+	-webkit-transform $transition;
+}
+
+@mixin box-shadow($top, $left, $right, $blur, $color) {
+    -webkit-box-shadow: $top $left $right $blur $color;
+    -moz-box-shadow: $top $left $right $blur $color;
+    box-shadow: $top $left $right $blur $color;
+}
+
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@mixin animation($str) {
+    -webkit-animation: #{$str};
+    -moz-animation: #{$str};
+    -ms-animation: #{$str};
+    -o-animation: #{$str};
+    animation: #{$str};
+}
+
+@include keyframes(slide-down) {
+    0% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 0;
+    }
+}

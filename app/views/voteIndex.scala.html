@@ -1,0 +1,33 @@
+@import helper._
+@(charities:List[Charity])
+
+@main("Happy Holidays from Beyond", "homepage") {
+    <main class="main">
+        <h1>Let’s make the holidays <span>brighter, together.</span></h1>
+        <p>As thanks for your partnership, Beyond SF will donate on your behalf to one of three local nonprofits doing important work now. Choose where your donation goes and light up our holiday sky.</p>
+
+        <p>Learn more about these organizations, then choose your favorite.*</p>
+
+        <ul class="buttons">
+            @for(c <- charities) {
+                <li>
+                    <a href="#@c.shortName" data-show="js-show-@c.shortName" class="js-show-modal">@c.name</a>
+                </li>
+            }
+        </ul>
+
+        <p class="disclaimer">* Please select your choice before Jan 7, 2018.</p>
+    </main>
+
+    <div id="js-mask" class="mask hdn" inert>
+        <div id="js-modal" class="modal">
+            <button class="close js-close">Close</button>
+            <div class="content js-content">
+                @for((c, index) <- charities.zipWithIndex) {
+                    @views.html.charityView.render(c, index)
+                }
+            </div>
+        </div>
+    </div>
+    <div class="lights-on-loader"></div>
+}
